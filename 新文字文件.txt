@@ -10,13 +10,13 @@
 <header class="top-bar">
     <div class="logo">RAGNAROK</div>
     <nav>
-        <a href="index.html">官網首頁</a>
-        <a href="news.html">最新消息</a>
-        <a href="https://ro.gnjoy.com.tw/">遊戲介紹</a>
+        <a href="https://www.nemyth.com/forum.php?mod=viewthread&tid=31534&page=1#pid4748047">官網首頁</a>
+        <a href="https://discord.gg/TQCEatVPbS">最新消息</a>
+        <a href="https://discord.gg/TQCEatVPbS">遊戲介紹</a>
         
-        <a href="download.html">下載專區</a>
+        <a href="https://drive.google.com/file/d/1GaUPGMJjLVgQ_e0ES2D9UbYd48UDqcuV/view?usp=drive_link">下載專區</a>
         
-        <a href="https://support.google.com/" target="_blank">客服中心</a>
+        <a href="https://discord.gg/TQCEatVPbS" target="_blank">客服中心</a>
     </nav>
 </header>
 
