@@ -5,23 +5,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>星樂園仙境｜官方網站</title>
     
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Varela+Round&display=swap" rel="stylesheet">
 
     <style>
-        /* --- 全域設定：星空魔幻風格 --- */
+        /* --- 全域設定：糖果布丁風格 --- */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: "Noto Sans TC", "Microsoft JhengHei", sans-serif;
+            font-family: "Varela Round", "Microsoft JhengHei", sans-serif; /* 圓體字 */
         }
         
         body {
-            /* 深邃星空漸層背景 */
-            background: linear-gradient(135deg, #1a0b2e 0%, #360940 50%, #0d0d18 100%);
-            color: #e0e0e0; /* 淺灰色文字，在深色背景較好讀 */
-            line-height: 1.6;
-            min-height: 100vh; /* 確保背景填滿視窗 */
+            /* 背景：可愛的粉紅點點 (用 CSS 畫出來的) */
+            background-color: #fff0f5;
+            background-image: radial-gradient(#ffb7b2 15%, transparent 16%),
+                              radial-gradient(#ffb7b2 15%, transparent 16%);
+            background-size: 30px 30px;
+            background-position: 0 0, 15px 15px;
+            color: #665c54; /* 暖灰色文字，比純黑柔和 */
         }
 
         a {
@@ -30,11 +32,11 @@
             transition: 0.3s;
         }
 
-        /* --- 頂部導覽列：玻璃質感 --- */
+        /* --- 頂部導覽列：像雲朵一樣 --- */
         .top-bar {
-            background: rgba(20, 10, 40, 0.8); /* 半透明深紫 */
-            backdrop-filter: blur(10px); /* 磨砂玻璃效果 */
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            background: #ffffff;
+            /* 底部用粉紅虛線 */
+            border-bottom: 4px dashed #ff9a9e; 
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -42,203 +44,182 @@
             position: sticky;
             top: 0;
             z-index: 1000;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+            box-shadow: 0 4px 15px rgba(255, 183, 178, 0.3);
         }
 
         .logo {
-            font-size: 24px;
-            font-weight: 700;
-            /* Logo 使用漸層發光色 */
-            background: linear-gradient(to right, #e0c3fc, #8ec5fc);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+            font-size: 26px;
+            font-weight: 800;
+            color: #ff6f61; /* 珊瑚紅 */
             letter-spacing: 2px;
-            text-shadow: 0 0 20px rgba(142, 197, 252, 0.4);
+            /* 讓 Logo 旁邊有一個小愛心符號 */
+        }
+        .logo::after {
+            content: '💖';
+            font-size: 20px;
+            margin-left: 5px;
         }
 
         .top-bar nav a {
-            margin-left: 25px;
-            color: #bbb;
-            font-weight: 500;
-            font-size: 15px;
-            position: relative;
+            margin-left: 20px;
+            color: #888;
+            font-weight: bold;
+            font-size: 16px;
+            padding: 5px 10px;
+            border-radius: 15px;
         }
 
-        /* 導覽連結 hover 發光 */
+        /* 滑鼠移過去變成粉紅膠囊 */
         .top-bar nav a:hover {
-            color: #fff;
-            text-shadow: 0 0 8px rgba(255, 255, 255, 0.8);
+            background-color: #ffe0e6;
+            color: #ff6f61;
         }
 
         /* --- 大圖橫幅 (Banner) --- */
         .banner {
-            /* 使用更深邃的紫色漸層 */
-            background: radial-gradient(circle at center, rgba(75, 0, 130, 0.4) 0%, rgba(0, 0, 0, 0) 70%),
-                        url('../images/banner.jpg') center/cover no-repeat; /* 預留給您放圖 */
-            /* 如果沒圖，這裡有一個純色備案： */
-            background-color: #240b36; 
+            height: 420px;
+            /* 這裡請換成您的圖片，現在先用粉紅漸層 */
+            background: linear-gradient(180deg, rgba(255,255,255,0.4) 0%, rgba(255,255,255,0) 100%),
+                        url('../images/banner.jpg') center/cover;
+            background-color: #ffc3a0; /* 圖片載入前的底色 */
             
-            height: 450px;
             display: flex;
             justify-content: center;
             align-items: center;
             text-align: center;
-            position: relative;
+            
+            /* 下緣做波浪造型 (用 border-radius 模擬大弧度) */
+            border-bottom-left-radius: 50% 20px;
+            border-bottom-right-radius: 50% 20px;
             overflow: hidden;
-        }
-
-        /* 加一點星星裝飾 (CSS 繪製) */
-        .banner::before {
-            content: '';
-            position: absolute;
-            top: 0; left: 0; right: 0; bottom: 0;
-            background-image: 
-                radial-gradient(white, rgba(255,255,255,.2) 2px, transparent 3px),
-                radial-gradient(white, rgba(255,255,255,.15) 1px, transparent 2px),
-                radial-gradient(white, rgba(255,255,255,.1) 2px, transparent 3px);
-            background-size: 550px 550px, 350px 350px, 250px 250px;
-            background-position: 0 0, 40px 60px, 130px 270px;
-            opacity: 0.3;
+            border-bottom: 5px solid #fff; /* 白色邊框 */
         }
 
         .banner-text {
-            z-index: 2;
+            background: rgba(255, 255, 255, 0.8); /* 半透明白底框，讓字清楚 */
+            padding: 30px 50px;
+            border-radius: 30px; /* 大圓角 */
+            box-shadow: 0 10px 0 rgba(230, 230, 230, 0.5); /* 厚厚的立體陰影 */
         }
 
         .banner h1 {
-            font-size: 52px;
+            font-size: 40px;
             margin-bottom: 10px;
-            color: #fff;
-            text-shadow: 0 0 10px rgba(199, 125, 255, 0.8), 0 0 20px rgba(199, 125, 255, 0.4);
-            font-weight: 700;
+            color: #ff6b6b;
         }
 
         .banner p {
-            font-size: 18px;
-            margin-bottom: 30px;
-            color: #d1d8e0;
-            letter-spacing: 1px;
+            font-size: 16px;
+            margin-bottom: 25px;
+            color: #888;
         }
 
-        /* --- 霓虹流光按鈕 --- */
+        /* --- 果凍Q彈按鈕 --- */
         .btn-play {
-            background: transparent;
-            color: #fff;
-            padding: 15px 50px;
-            border-radius: 30px;
-            font-size: 20px;
+            background: #ff9a9e;
+            color: white;
+            padding: 15px 45px;
+            border-radius: 50px;
+            font-size: 22px;
             font-weight: bold;
-            border: 2px solid #c77dff; /* 紫色邊框 */
-            box-shadow: 0 0 10px rgba(199, 125, 255, 0.5), inset 0 0 10px rgba(199, 125, 255, 0.2);
+            border: none;
             cursor: pointer;
-            transition: 0.3s;
+            /* 讓按鈕有立體感 */
+            box-shadow: 0 6px 0 #e07a7e; 
+            transition: all 0.1s;
             display: inline-block;
-            text-transform: uppercase;
-            letter-spacing: 2px;
         }
 
         .btn-play:hover {
-            background: #c77dff;
-            color: #1a0b2e;
-            box-shadow: 0 0 30px rgba(199, 125, 255, 0.8); /* 強烈發光 */
-            transform: scale(1.05);
+            background: #ff878d;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 0 #e07a7e;
+        }
+
+        .btn-play:active {
+            /* 按下去的效果 */
+            transform: translateY(4px);
+            box-shadow: 0 2px 0 #e07a7e;
         }
 
         /* --- 最新消息區塊 --- */
         .news {
-            padding: 80px 5%;
-            max-width: 1200px;
+            padding: 60px 5%;
+            max-width: 1100px;
             margin: 0 auto;
         }
 
         .news h2 {
             text-align: center;
-            margin-bottom: 50px;
-            font-size: 30px;
-            color: #fff;
-            position: relative;
-            letter-spacing: 2px;
+            margin-bottom: 40px;
+            font-size: 28px;
+            color: #ff6f61;
         }
         
-        .news h2::after {
-            content: '✦'; /* 星星符號 */
-            display: block;
-            font-size: 20px;
-            color: #9d4edd;
-            margin-top: 10px;
-        }
+        /* 標題兩邊加星星 */
+        .news h2::before { content: "✨ "; color: #ffd700; }
+        .news h2::after { content: " ✨"; color: #ffd700; }
 
         .news-list {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
+            gap: 25px;
         }
 
-        /* --- 玻璃質感卡片 --- */
+        /* --- 手作風格卡片 --- */
         .news-item {
-            /* 背景半透明白色 */
-            background: rgba(255, 255, 255, 0.05); 
-            border: 1px solid rgba(255, 255, 255, 0.1); /* 淡淡的白邊 */
-            border-radius: 16px;
-            padding: 30px;
-            transition: 0.4s;
+            background: #fff;
+            /* 粗粗的圓角邊框，像貼紙 */
+            border: 4px solid #f0f0f0; 
+            border-radius: 25px;
+            padding: 25px;
+            transition: 0.3s;
             position: relative;
-            overflow: hidden;
         }
 
-        /* 卡片左側光條 */
-        .news-item::before {
-            content: '';
-            position: absolute;
-            left: 0;
-            top: 0;
-            height: 100%;
-            width: 4px;
-            background: #555; /* 預設顏色 */
-            box-shadow: 0 0 10px currentColor; /* 讓線條發光 */
-        }
-
-        /* 卡片懸浮效果：上浮 + 背景變亮 */
+        /* 滑鼠移上去會歪頭跳起來 */
         .news-item:hover {
-            transform: translateY(-10px);
-            background: rgba(255, 255, 255, 0.1);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            border-color: #ffb7b2; /* 邊框變粉紅 */
+            transform: translateY(-10px) rotate(-2deg); /* 上浮+旋轉 */
+            box-shadow: 5px 5px 0 #ffced9; /* 粉紅色的立體影子 */
         }
 
-        /* 不同類型新聞的霓虹燈色 */
-        .news-item.maintenance::before { background: #ff4757; color: #ff4757; } /* 紅光 */
-        .news-item.event::before { background: #ffa502; color: #ffa502; }       /* 橘光 */
-        .news-item.update::before { background: #2ed573; color: #2ed573; }      /* 綠光 */
-
+        /* 標題前面的圓點點 */
         .news-item h3 {
-            margin-bottom: 15px;
+            margin-bottom: 10px;
             font-size: 18px;
-            color: #fff;
-            font-weight: 500;
+            color: #555;
+            display: flex;
+            align-items: center;
         }
+        
+        /* 使用不同顏色的圓點代表分類 */
+        .news-item.maintenance h3::before { content: ''; display: inline-block; width: 12px; height: 12px; border-radius: 50%; background: #ff6b6b; margin-right: 8px; }
+        .news-item.event h3::before { content: ''; display: inline-block; width: 12px; height: 12px; border-radius: 50%; background: #feca57; margin-right: 8px; }
+        .news-item.update h3::before { content: ''; display: inline-block; width: 12px; height: 12px; border-radius: 50%; background: #1dd1a1; margin-right: 8px; }
 
         .news-item p {
-            color: #a0a0a0;
+            color: #999;
             font-size: 14px;
-            font-weight: 300;
+            line-height: 1.5;
         }
 
         /* --- 頁尾 --- */
         footer {
-            background: rgba(0, 0, 0, 0.3);
-            border-top: 1px solid rgba(255, 255, 255, 0.05);
-            color: #888;
+            background: #ffecd2; /* 奶油黃 */
+            color: #dfa376;
             text-align: center;
             padding: 30px;
             margin-top: 50px;
-            font-size: 13px;
+            font-weight: bold;
+            border-top: 4px dashed #ffd1a4;
         }
     </style>
 </head>
 <body>
 
 <header class="top-bar">
-    <div class="logo">⭐ Starlight Wonderland</div>
+    <div class="logo">星樂園仙境</div>
     <nav>
         <a href="https://www.nemyth.com/forum.php?mod=viewthread&tid=31534&page=1#pid4748047">官網首頁</a>
         <a href="https://discord.gg/TQCEatVPbS">最新消息</a>
@@ -250,8 +231,8 @@
 
 <section class="banner">
     <div class="banner-text">
-        <h1>再次踏上冒險的旅程</h1>
-        <p>最綺麗夢幻的 RO 私服，等待您的加入！</p>
+        <h1>🐾 再次踏上冒險旅程</h1>
+        <p>最溫馨可愛的 RO 私服，等待您的加入！</p>
         
         <a href="https://discord.gg/TQCEatVPbS" target="_blank" class="btn-play">
             立即遊玩
@@ -265,21 +246,21 @@
         
         <a href="https://discord.gg/TQCEatVPbS" target="_blank">
             <div class="news-item maintenance">
-                <h3>📢 例行維護公告</h3>
+                <h3>例行維護公告</h3>
                 <p>本週例行維護將於週四 22:00 進行，預計作業時間為 5 分鐘。</p> 
             </div>
         </a>
 
         <a href="https://discord.gg/TQCEatVPbS" target="_blank">
             <div class="news-item event">
-                <h3>🎉 跨年活動開放</h3>
-                <p>跨年限定活動副本正式登場！趕快組隊一起來挑戰吧。</p>
+                <h3>新活動開放</h3>
+                <p>限定活動副本正式登場！趕快組隊一起來挑戰吧。</p>
             </div>
         </a>
 
         <a href="https://discord.gg/TQCEatVPbS" target="_blank">
             <div class="news-item update">
-                <h3>⚔️ 職業平衡調整</h3>
+                <h3>職業平衡調整</h3>
                 <p>部分職業技能數值調整說明，詳情請點擊查看。</p>
             </div>
         </a>
@@ -288,7 +269,7 @@
 </section>
 
 <footer>
-    <p>© 2026 Starlight Wonderland / Ragnarok Online Fan Style Site</p>
+    <p>© 2024 Starlight Wonderland / Ragnarok Online Fan Style Site</p>
 </footer>
 
 </body>
