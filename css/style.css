@@ -164,7 +164,7 @@ nav a:hover::after {
 .news-list {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* RWD 網格排列 */
-    gap: 30px;
+    gap: 30px; 
 }
 
 /* --- 極簡卡片風格 --- */
