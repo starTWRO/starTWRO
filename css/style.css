@@ -1,187 +1,219 @@
-/* --- 全域設定：可愛風格基礎 --- */
-/* 引入一個比較圓潤的字型 (如果電腦有支援的話) */
-@import url('https://fonts.googleapis.com/css2?family=Varela+Round&display=swap');
+/* --- 全域設定：暗黑傳奇風格 --- */
+/* 引入更有氣勢的字體：Cinzel (標題用) 與 Lato (內文用) */
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Lato:wght@400;700&display=swap');
 
 body {
     margin: 0;
-    /* 使用圓潤的字體，看起來比較親切 */
-    font-family: "Varela Round", "Microsoft JhengHei", "Yu Gothic", sans-serif;
-    /* 背景改成淡淡的粉紅色 */
-    background-color: #fff0f5; 
-    color: #555; /* 字體顏色不要全黑，深灰色比較柔和 */
+    font-family: 'Lato', "Microsoft JhengHei", sans-serif;
+    /* 背景改為深灰色/近黑色，營造高級感 */
+    background-color: #121212; 
+    color: #b0b0b0; /* 文字改為銀灰色，閱讀不刺眼 */
 }
 
-/* 連結設定：移除底線 */
+/* 連結全域設定 */
 a {
     text-decoration: none;
     color: inherit;
-    transition: 0.3s;
+    transition: 0.3s ease;
 }
 
-/* --- 上方導覽列：像雲朵一樣 --- */
+/* --- 上方導覽列：半透明黑金 --- */
 .top-bar {
-    background: #ffffff;
-    /* 下方加一條粉紅色的裝飾線 */
-    border-bottom: 4px solid #ffb7b2; 
+    background: rgba(0, 0, 0, 0.9); /* 深黑半透明 */
+    border-bottom: 1px solid #d4af37; /* 底部加一條金線 */
+    color: #fff;
     display: flex;
     align-items: center;
     padding: 15px 40px;
-    box-shadow: 0 4px 15px rgba(255, 183, 178, 0.3); /* 粉紅色的陰影 */
+    box-shadow: 0 4px 20px rgba(0,0,0,0.8);
+    position: sticky; /* 讓選單黏在頂部 */
+    top: 0;
+    z-index: 1000;
 }
 
 .logo {
-    font-size: 26px;
-    font-weight: 800; /* 字體加粗 */
-    color: #ff6f61; /* 珊瑚紅 */
-    margin-right: 40px;
-    /* 讓 Logo 有一點點可愛的旋轉感或是圖示感 */
+    font-family: 'Cinzel', serif; /* Logo 使用襯線字體 */
+    font-size: 28px;
+    font-weight: 700;
+    color: #d4af37; /* 金色 */
+    margin-right: 50px;
+    text-transform: uppercase;
     letter-spacing: 2px;
+    text-shadow: 0 0 10px rgba(212, 175, 55, 0.3); /* 微微發光 */
 }
 
 nav a {
-    color: #888;
-    margin-right: 25px;
-    font-weight: bold;
-    font-size: 16px;
+    color: #ccc;
+    margin-right: 30px;
+    font-size: 14px;
+    font-weight: 700;
+    text-transform: uppercase; /* 選單全大寫 */
+    letter-spacing: 1px;
     position: relative;
 }
 
-/* 滑鼠移過去會有一個小圓點出現 */
+/* 滑鼠移過去變金色 */
 nav a:hover {
-    color: #ff6f61;
+    color: #d4af37;
 }
 
 /* --- Banner 大圖區 --- */
 .banner {
-    height: 420px;
+    height: 480px; /* 稍微加高 */
     background: linear-gradient(
-        rgba(255, 255, 255, 0.2), 
-        rgba(255, 255, 255, 0.2)
+        to bottom,
+        rgba(18, 18, 18, 0.3), /* 上方透明 */
+        rgba(18, 18, 18, 1.0)  /* 下方漸層融入背景 */
     ),
     url("../images/banner.jpg") center / cover;
     display: flex;
     align-items: center;
     justify-content: center;
-    /* 下緣做一點圓弧造型 (選用) */
-    border-bottom-left-radius: 50px;
-    border-bottom-right-radius: 50px;
-    overflow: hidden;
+    border-bottom: 1px solid #333;
 }
 
 .banner-text {
     text-align: center;
     color: #fff;
-    /* 文字要有邊框或陰影才看得清楚，這裡用柔和的陰影 */
-    text-shadow: 2px 2px 0px rgba(255, 150, 150, 0.8);
+    z-index: 2;
 }
 
 .banner-text h1 {
-    font-size: 52px;
-    margin-bottom: 10px;
+    font-family: 'Cinzel', serif;
+    font-size: 56px;
+    margin-bottom: 15px;
+    color: #fff;
+    text-shadow: 0 5px 15px rgba(0,0,0,0.8);
     letter-spacing: 3px;
 }
 
-.banner-text a {
-    display: inline-block; /* 確保按鈕連結正常 */
+.banner-text p {
+    font-size: 18px;
+    color: #dcdcdc;
+    margin-bottom: 30px;
+    font-weight: 300;
+    letter-spacing: 1px;
 }
 
-/* --- 超可愛的果凍按鈕 --- */
+/* 確保連結不影響按鈕排版 */
+.banner-text a {
+    display: inline-block;
+}
+
+/* --- 傳奇金屬按鈕 --- */
 .banner-text button {
-    padding: 15px 45px;
-    font-size: 20px;
+    padding: 15px 40px;
+    font-family: 'Cinzel', serif;
+    font-size: 18px;
     font-weight: bold;
-    color: #fff;
-    /* 粉紅漸層背景 */
-    background: linear-gradient(45deg, #ff9a9e 0%, #fad0c4 99%, #fad0c4 100%);
-    border: none;
-    /* 超圓的邊角 (膠囊狀) */
-    border-radius: 50px; 
+    color: #000;
+    /* 金屬質感漸層 */
+    background: linear-gradient(135deg, #d4af37 0%, #f9d976 100%);
+    border: 1px solid #fff;
     cursor: pointer;
-    margin-top: 20px;
-    /* 按鈕陰影 */
-    box-shadow: 0 6px 20px rgba(255, 154, 158, 0.5);
-    transition: transform 0.2s, box-shadow 0.2s;
+    box-shadow: 0 0 15px rgba(212, 175, 55, 0.4); /* 金色光暈 */
+    transition: 0.3s;
+    text-transform: uppercase;
+    letter-spacing: 1px;
 }
 
 .banner-text button:hover {
-    /* 滑鼠移上去會放大並上浮 */
-    transform: scale(1.05) translateY(-3px);
-    box-shadow: 0 10px 25px rgba(255, 154, 158, 0.7);
+    background: #fff;
+    color: #000;
+    box-shadow: 0 0 25px rgba(255, 255, 255, 0.6); /* 發白光 */
+    transform: scale(1.05); /* 放大 */
 }
 
 /* --- 最新消息 --- */
 .news {
-    padding: 60px 20px;
+    padding: 80px 20px;
     max-width: 1100px;
     margin: auto;
 }
 
 .news h2 {
+    font-family: 'Cinzel', serif;
     text-align: center;
-    margin-bottom: 40px;
+    margin-bottom: 50px;
     font-size: 32px;
-    color: #ff6f61;
-    /* 標題加上可愛的裝飾符號 */
+    color: #d4af37; /* 金色標題 */
+    border-bottom: 1px solid #333;
+    display: table; /* 讓線條跟文字一樣寬 */
+    margin-left: auto;
+    margin-right: auto;
+    padding-bottom: 15px;
+    position: relative;
 }
 
-.news h2::before { content: "✨ "; }
-.news h2::after { content: " ✨"; }
+/* 標題下方的小裝飾點 */
+.news h2::after {
+    content: '♦';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #121212;
+    padding: 0 10px;
+    color: #d4af37;
+    font-size: 14px;
+}
 
 .news-list {
     display: flex;
-    gap: 25px;
-    flex-wrap: wrap; /* 避免擠在一起 */
+    gap: 30px;
+    flex-wrap: wrap; /* 保持 RWD 自動換行 */
 }
 
-/* --- 卡片式新聞框 --- */
+/* --- 暗黑卡片風格 --- */
 .news-item {
-    background: #fff;
-    /* 使用虛線邊框，看起來像手作風格 */
-    border: 3px dashed #ffb7b2;
-    border-radius: 25px; /* 大圓角 */
+    background: #1e1e1e; /* 深灰底色 */
+    border: 1px solid #333; /* 很淡的邊框 */
     padding: 30px;
     flex: 1;
     min-width: 280px;
-    text-align: center; /* 讓內容置中比較可愛 */
-    transition: 0.3s;
+    transition: 0.4s;
+    position: relative;
 }
 
+/* 滑鼠移上去的效果 */
 .news-item:hover {
-    background-color: #fff9f9;
-    border-color: #ff6f61;
-    /* 滑鼠移上去會歪頭一下 (可愛動畫) */
-    transform: rotate(-2deg) scale(1.02); 
+    border-color: #d4af37; /* 邊框變金 */
+    background: #252525;
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
 }
 
 .news-item h3 {
     margin-top: 0;
-    color: #555;
-    font-size: 20px;
+    margin-bottom: 15px;
+    font-family: 'Cinzel', serif;
+    font-size: 18px;
+    line-height: 1.4;
 }
 
 .news-item h3 a {
-    color: #444;
+    color: #fff; /* 標題白色 */
 }
 
 .news-item h3 a:hover {
-    color: #ff6f61;
+    color: #d4af37; /* 標題變金 */
 }
 
 .news-item p {
+    font-size: 14px;
     color: #888;
-    font-size: 15px;
     line-height: 1.6;
 }
 
 /* --- 頁尾 --- */
 footer {
-    background: #ffb7b2; /* 淺粉紅 */
-    color: #fff;
+    background: #000;
+    border-top: 1px solid #333;
+    color: #666;
     text-align: center;
-    padding: 30px;
-    margin-top: 50px;
-    font-weight: bold;
-    /* 上方做一點圓弧 */
-    border-top-left-radius: 50px;
-    border-top-right-radius: 50px;
+    padding: 40px;
+    margin-top: 80px;
+    font-size: 12px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
 }
