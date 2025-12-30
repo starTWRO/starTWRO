@@ -5,19 +5,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>星樂園仙境｜官方網站</title>
     
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;500;700&display=swap" rel="stylesheet">
+
     <style>
-        /* --- 全域設定 --- */
+        /* --- 全域設定：星空魔幻風格 --- */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: "Microsoft JhengHei", "PingFang TC", sans-serif;
+            font-family: "Noto Sans TC", "Microsoft JhengHei", sans-serif;
         }
         
         body {
-            background-color: #f4f6f8;
-            color: #333;
+            /* 深邃星空漸層背景 */
+            background: linear-gradient(135deg, #1a0b2e 0%, #360940 50%, #0d0d18 100%);
+            color: #e0e0e0; /* 淺灰色文字，在深色背景較好讀 */
             line-height: 1.6;
+            min-height: 100vh; /* 確保背景填滿視窗 */
         }
 
         a {
@@ -26,10 +30,11 @@
             transition: 0.3s;
         }
 
-        /* --- 頂部導覽列 (Header) --- */
+        /* --- 頂部導覽列：玻璃質感 --- */
         .top-bar {
-            background: #ffffff;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            background: rgba(20, 10, 40, 0.8); /* 半透明深紫 */
+            backdrop-filter: blur(10px); /* 磨砂玻璃效果 */
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -37,147 +42,203 @@
             position: sticky;
             top: 0;
             z-index: 1000;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.5);
         }
 
         .logo {
             font-size: 24px;
-            font-weight: bold;
-            color: #0055AA; /* RO 經典藍 */
-            letter-spacing: 1px;
+            font-weight: 700;
+            /* Logo 使用漸層發光色 */
+            background: linear-gradient(to right, #e0c3fc, #8ec5fc);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            letter-spacing: 2px;
+            text-shadow: 0 0 20px rgba(142, 197, 252, 0.4);
         }
 
         .top-bar nav a {
-            margin-left: 20px;
-            color: #555;
+            margin-left: 25px;
+            color: #bbb;
             font-weight: 500;
-            font-size: 16px;
+            font-size: 15px;
+            position: relative;
         }
 
+        /* 導覽連結 hover 發光 */
         .top-bar nav a:hover {
-            color: #0055AA;
+            color: #fff;
+            text-shadow: 0 0 8px rgba(255, 255, 255, 0.8);
         }
 
         /* --- 大圖橫幅 (Banner) --- */
         .banner {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); /* 暫時用漸層代替圖片 */
-            /* 如果有背景圖，請用下面這行取代上面那行： */
-            /* background: url('您的背景圖網址.jpg') center/cover no-repeat; */
-            height: 400px;
+            /* 使用更深邃的紫色漸層 */
+            background: radial-gradient(circle at center, rgba(75, 0, 130, 0.4) 0%, rgba(0, 0, 0, 0) 70%),
+                        url('../images/banner.jpg') center/cover no-repeat; /* 預留給您放圖 */
+            /* 如果沒圖，這裡有一個純色備案： */
+            background-color: #240b36; 
+            
+            height: 450px;
             display: flex;
             justify-content: center;
             align-items: center;
             text-align: center;
-            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* 加一點星星裝飾 (CSS 繪製) */
+        .banner::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background-image: 
+                radial-gradient(white, rgba(255,255,255,.2) 2px, transparent 3px),
+                radial-gradient(white, rgba(255,255,255,.15) 1px, transparent 2px),
+                radial-gradient(white, rgba(255,255,255,.1) 2px, transparent 3px);
+            background-size: 550px 550px, 350px 350px, 250px 250px;
+            background-position: 0 0, 40px 60px, 130px 270px;
+            opacity: 0.3;
+        }
+
+        .banner-text {
+            z-index: 2;
         }
 
         .banner h1 {
-            font-size: 48px;
+            font-size: 52px;
             margin-bottom: 10px;
-            text-shadow: 0 2px 5px rgba(0,0,0,0.3);
+            color: #fff;
+            text-shadow: 0 0 10px rgba(199, 125, 255, 0.8), 0 0 20px rgba(199, 125, 255, 0.4);
+            font-weight: 700;
         }
 
         .banner p {
             font-size: 18px;
             margin-bottom: 30px;
-            opacity: 0.9;
+            color: #d1d8e0;
+            letter-spacing: 1px;
         }
 
-        /* --- 立即遊玩按鈕 --- */
+        /* --- 霓虹流光按鈕 --- */
         .btn-play {
-            background: linear-gradient(to right, #ff7e5f, #feb47b); /* 橘色系按鈕 */
-            color: white;
-            padding: 15px 40px;
-            border-radius: 50px;
+            background: transparent;
+            color: #fff;
+            padding: 15px 50px;
+            border-radius: 30px;
             font-size: 20px;
             font-weight: bold;
-            box-shadow: 0 4px 15px rgba(255, 126, 95, 0.4);
-            border: none;
+            border: 2px solid #c77dff; /* 紫色邊框 */
+            box-shadow: 0 0 10px rgba(199, 125, 255, 0.5), inset 0 0 10px rgba(199, 125, 255, 0.2);
             cursor: pointer;
-            transition: transform 0.2s, box-shadow 0.2s;
-            display: inline-block; /* 讓 a 標籤像按鈕一樣 */
+            transition: 0.3s;
+            display: inline-block;
+            text-transform: uppercase;
+            letter-spacing: 2px;
         }
 
         .btn-play:hover {
-            transform: translateY(-3px); /* 滑鼠移上去稍微上浮 */
-            box-shadow: 0 6px 20px rgba(255, 126, 95, 0.6);
+            background: #c77dff;
+            color: #1a0b2e;
+            box-shadow: 0 0 30px rgba(199, 125, 255, 0.8); /* 強烈發光 */
+            transform: scale(1.05);
         }
 
         /* --- 最新消息區塊 --- */
         .news {
-            padding: 60px 5%;
+            padding: 80px 5%;
             max-width: 1200px;
             margin: 0 auto;
         }
 
         .news h2 {
             text-align: center;
-            margin-bottom: 40px;
-            font-size: 28px;
-            color: #333;
+            margin-bottom: 50px;
+            font-size: 30px;
+            color: #fff;
             position: relative;
+            letter-spacing: 2px;
         }
         
-        /* 標題下面的小裝飾線 */
         .news h2::after {
-            content: '';
+            content: '✦'; /* 星星符號 */
             display: block;
-            width: 50px;
-            height: 3px;
-            background-color: #0055AA;
-            margin: 10px auto 0;
+            font-size: 20px;
+            color: #9d4edd;
+            margin-top: 10px;
         }
 
         .news-list {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* 自動排版 RWD */
-            gap: 25px;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
         }
 
-        /* --- 新聞卡片樣式 --- */
+        /* --- 玻璃質感卡片 --- */
         .news-item {
-            background: white;
-            border-radius: 12px;
-            padding: 25px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-            transition: transform 0.3s, box-shadow 0.3s;
-            border-left: 5px solid #ddd; /* 左邊的顏色條 */
+            /* 背景半透明白色 */
+            background: rgba(255, 255, 255, 0.05); 
+            border: 1px solid rgba(255, 255, 255, 0.1); /* 淡淡的白邊 */
+            border-radius: 16px;
+            padding: 30px;
+            transition: 0.4s;
+            position: relative;
+            overflow: hidden;
         }
 
+        /* 卡片左側光條 */
+        .news-item::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            height: 100%;
+            width: 4px;
+            background: #555; /* 預設顏色 */
+            box-shadow: 0 0 10px currentColor; /* 讓線條發光 */
+        }
+
+        /* 卡片懸浮效果：上浮 + 背景變亮 */
         .news-item:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            transform: translateY(-10px);
+            background: rgba(255, 255, 255, 0.1);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
         }
 
-        /* 不同類型新聞的顏色條 */
-        .news-item.maintenance { border-left-color: #ff4757; } /* 維修紅 */
-        .news-item.event { border-left-color: #ffa502; }       /* 活動橘 */
-        .news-item.update { border-left-color: #2ed573; }      /* 更新綠 */
+        /* 不同類型新聞的霓虹燈色 */
+        .news-item.maintenance::before { background: #ff4757; color: #ff4757; } /* 紅光 */
+        .news-item.event::before { background: #ffa502; color: #ffa502; }       /* 橘光 */
+        .news-item.update::before { background: #2ed573; color: #2ed573; }      /* 綠光 */
 
         .news-item h3 {
-            margin-bottom: 10px;
+            margin-bottom: 15px;
             font-size: 18px;
+            color: #fff;
+            font-weight: 500;
         }
 
         .news-item p {
-            color: #666;
+            color: #a0a0a0;
             font-size: 14px;
+            font-weight: 300;
         }
 
         /* --- 頁尾 --- */
         footer {
-            background: #2f3542;
-            color: #a4b0be;
+            background: rgba(0, 0, 0, 0.3);
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            color: #888;
             text-align: center;
-            padding: 20px;
+            padding: 30px;
             margin-top: 50px;
-            font-size: 14px;
+            font-size: 13px;
         }
     </style>
 </head>
 <body>
 
 <header class="top-bar">
-    <div class="logo">⭐ 星樂園仙境</div>
+    <div class="logo">⭐ Starlight Wonderland</div>
     <nav>
         <a href="https://www.nemyth.com/forum.php?mod=viewthread&tid=31534&page=1#pid4748047">官網首頁</a>
         <a href="https://discord.gg/TQCEatVPbS">最新消息</a>
@@ -190,8 +251,8 @@
 <section class="banner">
     <div class="banner-text">
         <h1>再次踏上冒險的旅程</h1>
-        <p>最溫馨可愛的 RO 私服，等待您的加入！</p>
-       
+        <p>最綺麗夢幻的 RO 私服，等待您的加入！</p>
+        
         <a href="https://discord.gg/TQCEatVPbS" target="_blank" class="btn-play">
             立即遊玩
         </a>
@@ -211,8 +272,8 @@
 
         <a href="https://discord.gg/TQCEatVPbS" target="_blank">
             <div class="news-item event">
-                <h3>🎉 新活動開放</h3>
-                <p>限定活動副本正式登場！趕快組隊一起來挑戰吧。</p>
+                <h3>🎉 跨年活動開放</h3>
+                <p>跨年限定活動副本正式登場！趕快組隊一起來挑戰吧。</p>
             </div>
         </a>
 
@@ -227,7 +288,7 @@
 </section>
 
 <footer>
-    <p>© 2024 Starlight Wonderland / Ragnarok Online Fan Style Site</p>
+    <p>© 2026 Starlight Wonderland / Ragnarok Online Fan Style Site</p>
 </footer>
 
 </body>
