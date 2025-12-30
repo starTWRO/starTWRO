@@ -1,219 +1,97 @@
-/* --- 全域設定：暗黑傳奇風格 --- */
-/* 引入更有氣勢的字體：Cinzel (標題用) 與 Lato (內文用) */
-@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Lato:wght@400;700&display=swap');
-
 body {
     margin: 0;
-    font-family: 'Lato', "Microsoft JhengHei", sans-serif;
-    /* 背景改為深灰色/近黑色，營造高級感 */
-    background-color: #121212; 
-    color: #b0b0b0; /* 文字改為銀灰色，閱讀不刺眼 */
+    font-family: "Noto Serif TC", "Microsoft JhengHei", serif;
+    background: #f3efe3;
+    color: #3a2e1f;
 }
 
-/* 連結全域設定 */
-a {
-    text-decoration: none;
-    color: inherit;
-    transition: 0.3s ease;
-}
-
-/* --- 上方導覽列：半透明黑金 --- */
+/* 上方導覽 */
 .top-bar {
-    background: rgba(0, 0, 0, 0.9); /* 深黑半透明 */
-    border-bottom: 1px solid #d4af37; /* 底部加一條金線 */
+    background: #6b3f1d;
     color: #fff;
     display: flex;
     align-items: center;
-    padding: 15px 40px;
-    box-shadow: 0 4px 20px rgba(0,0,0,0.8);
-    position: sticky; /* 讓選單黏在頂部 */
-    top: 0;
-    z-index: 1000;
+    padding: 10px 40px;
 }
 
 .logo {
-    font-family: 'Cinzel', serif; /* Logo 使用襯線字體 */
-    font-size: 28px;
-    font-weight: 700;
-    color: #d4af37; /* 金色 */
-    margin-right: 50px;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    text-shadow: 0 0 10px rgba(212, 175, 55, 0.3); /* 微微發光 */
+    font-size: 24px;
+    font-weight: bold;
+    margin-right: 40px;
 }
 
 nav a {
-    color: #ccc;
-    margin-right: 30px;
-    font-size: 14px;
-    font-weight: 700;
-    text-transform: uppercase; /* 選單全大寫 */
-    letter-spacing: 1px;
-    position: relative;
+    color: #fff;
+    margin-right: 20px;
+    text-decoration: none;
 }
 
-/* 滑鼠移過去變金色 */
 nav a:hover {
-    color: #d4af37;
+    text-decoration: underline;
 }
 
-/* --- Banner 大圖區 --- */
+/* Banner */
 .banner {
-    height: 480px; /* 稍微加高 */
+    height: 420px;
     background: linear-gradient(
-        to bottom,
-        rgba(18, 18, 18, 0.3), /* 上方透明 */
-        rgba(18, 18, 18, 1.0)  /* 下方漸層融入背景 */
+        rgba(0,0,0,0.3),
+        rgba(0,0,0,0.3)
     ),
     url("../images/banner.jpg") center / cover;
     display: flex;
     align-items: center;
     justify-content: center;
-    border-bottom: 1px solid #333;
 }
 
 .banner-text {
     text-align: center;
     color: #fff;
-    z-index: 2;
 }
 
 .banner-text h1 {
-    font-family: 'Cinzel', serif;
-    font-size: 56px;
-    margin-bottom: 15px;
-    color: #fff;
-    text-shadow: 0 5px 15px rgba(0,0,0,0.8);
-    letter-spacing: 3px;
+    font-size: 48px;
+    margin-bottom: 10px;
 }
 
-.banner-text p {
-    font-size: 18px;
-    color: #dcdcdc;
-    margin-bottom: 30px;
-    font-weight: 300;
-    letter-spacing: 1px;
-}
-
-/* 確保連結不影響按鈕排版 */
-.banner-text a {
-    display: inline-block;
-}
-
-/* --- 傳奇金屬按鈕 --- */
 .banner-text button {
-    padding: 15px 40px;
-    font-family: 'Cinzel', serif;
-    font-size: 18px;
-    font-weight: bold;
-    color: #000;
-    /* 金屬質感漸層 */
-    background: linear-gradient(135deg, #d4af37 0%, #f9d976 100%);
-    border: 1px solid #fff;
+    padding: 12px 30px;
+    font-size: 16px;
+    background: #cfa75a;
+    border: none;
     cursor: pointer;
-    box-shadow: 0 0 15px rgba(212, 175, 55, 0.4); /* 金色光暈 */
-    transition: 0.3s;
-    text-transform: uppercase;
-    letter-spacing: 1px;
 }
 
 .banner-text button:hover {
-    background: #fff;
-    color: #000;
-    box-shadow: 0 0 25px rgba(255, 255, 255, 0.6); /* 發白光 */
-    transform: scale(1.05); /* 放大 */
+    background: #e0bf75;
 }
 
-/* --- 最新消息 --- */
+/* 最新消息 */
 .news {
-    padding: 80px 20px;
+    padding: 50px;
     max-width: 1100px;
     margin: auto;
 }
 
 .news h2 {
-    font-family: 'Cinzel', serif;
     text-align: center;
-    margin-bottom: 50px;
-    font-size: 32px;
-    color: #d4af37; /* 金色標題 */
-    border-bottom: 1px solid #333;
-    display: table; /* 讓線條跟文字一樣寬 */
-    margin-left: auto;
-    margin-right: auto;
-    padding-bottom: 15px;
-    position: relative;
-}
-
-/* 標題下方的小裝飾點 */
-.news h2::after {
-    content: '♦';
-    position: absolute;
-    bottom: -10px;
-    left: 50%;
-    transform: translateX(-50%);
-    background: #121212;
-    padding: 0 10px;
-    color: #d4af37;
-    font-size: 14px;
+    margin-bottom: 30px;
 }
 
 .news-list {
     display: flex;
-    gap: 30px;
-    flex-wrap: wrap; /* 保持 RWD 自動換行 */
+    gap: 20px;
 }
 
-/* --- 暗黑卡片風格 --- */
 .news-item {
-    background: #1e1e1e; /* 深灰底色 */
-    border: 1px solid #333; /* 很淡的邊框 */
-    padding: 30px;
+    background: #fff;
+    border: 2px solid #d6c8a5;
+    padding: 20px;
     flex: 1;
-    min-width: 280px;
-    transition: 0.4s;
-    position: relative;
 }
 
-/* 滑鼠移上去的效果 */
-.news-item:hover {
-    border-color: #d4af37; /* 邊框變金 */
-    background: #252525;
-    transform: translateY(-5px);
-    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-}
-
-.news-item h3 {
-    margin-top: 0;
-    margin-bottom: 15px;
-    font-family: 'Cinzel', serif;
-    font-size: 18px;
-    line-height: 1.4;
-}
-
-.news-item h3 a {
-    color: #fff; /* 標題白色 */
-}
-
-.news-item h3 a:hover {
-    color: #d4af37; /* 標題變金 */
-}
-
-.news-item p {
-    font-size: 14px;
-    color: #888;
-    line-height: 1.6;
-}
-
-/* --- 頁尾 --- */
 footer {
-    background: #000;
-    border-top: 1px solid #333;
-    color: #666;
+    background: #3a2e1f;
+    color: #fff;
     text-align: center;
-    padding: 40px;
-    margin-top: 80px;
-    font-size: 12px;
-    letter-spacing: 1px;
-    text-transform: uppercase;
+    padding: 15px;
 }
