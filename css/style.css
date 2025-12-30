@@ -6,7 +6,7 @@ body {
     /* 使用現代感的無襯線字體，乾淨俐落 */
     font-family: "Roboto", "Noto Sans TC", "Microsoft JhengHei", sans-serif;
     /* 背景使用極淡的藍灰色，讓白色的內容區塊更凸出 */
-    background-color: #f0f4f8;
+    background-color: #f0f4f8; 
     color: #2d3436;
 }
 
