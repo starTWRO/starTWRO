@@ -1,0 +1,214 @@
+/* --- 全域設定：現代冒險風格 --- */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Noto+Sans+TC:wght@400;700&display=swap');
+
+body {
+    margin: 0;
+    /* 使用現代感的無襯線字體，乾淨俐落 */
+    font-family: "Roboto", "Noto Sans TC", "Microsoft JhengHei", sans-serif;
+    /* 背景使用極淡的藍灰色，讓白色的內容區塊更凸出 */
+    background-color: #f0f4f8;
+    color: #2d3436;
+}
+
+/* 連結全域設定 */
+a {
+    text-decoration: none;
+    color: inherit;
+    transition: 0.2s ease-in-out;
+}
+
+/* --- 上方導覽列：科技深藍 --- */
+.top-bar {
+    /* 漸層深藍色背景 */
+    background: linear-gradient(90deg, #0c2461 0%, #1e3799 100%);
+    color: #fff;
+    display: flex;
+    justify-content: space-between; /* 讓 Logo 和選單分開兩邊 */
+    align-items: center;
+    padding: 0 5%; /* 左右留白 */
+    height: 70px; /* 固定高度 */
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    position: sticky; /* 讓選單黏在頂部 */
+    top: 0;
+    z-index: 1000;
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: 700;
+    color: #fff;
+    text-transform: uppercase; /* 英文全大寫 */
+    letter-spacing: 2px;
+    /* 給 Logo 加一點發光效果 */
+    text-shadow: 0 0 10px rgba(74, 105, 189, 0.8);
+}
+
+nav a {
+    color: #dfe6e9; /* 淺灰色文字 */
+    margin-left: 30px;
+    font-size: 15px;
+    font-weight: 500;
+    position: relative;
+    padding: 5px 0;
+}
+
+/* 滑鼠移過去，下方出現黃色線條 */
+nav a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: #f1c40f; /* 亮黃色 */
+    transition: 0.3s;
+}
+
+nav a:hover {
+    color: #fff;
+}
+
+nav a:hover::after {
+    width: 100%; /* 線條延伸 */
+}
+
+/* --- Banner 大圖區 --- */
+.banner {
+    height: 500px; /* 稍微加高，更大氣 */
+    background: linear-gradient(
+        rgba(12, 36, 97, 0.6), 
+        rgba(12, 36, 97, 0.4)
+    ),
+    url("../images/banner.jpg") center / cover;
+    display: flex;
+    flex-direction: column; /* 讓內容垂直排列 */
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+/* 在 Banner 下方加一個斜切造型 (SVG 概念的 CSS 寫法) */
+.banner::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 50px;
+    background: #f0f4f8; /* 跟 body 背景色一樣 */
+    clip-path: polygon(0 100%, 100% 100%, 100% 0); /* 斜切效果 */
+}
+
+.banner-text {
+    text-align: center;
+    color: #fff;
+    z-index: 2; /* 確保文字在斜切圖形上方 */
+}
+
+.banner-text h1 {
+    font-size: 60px;
+    margin: 0 0 10px 0;
+    text-shadow: 0 4px 8px rgba(0,0,0,0.5);
+    font-weight: 900;
+}
+
+.banner-text p {
+    font-size: 20px;
+    opacity: 0.9;
+    margin-bottom: 30px;
+    font-weight: 300;
+}
+
+/* 確保連結不影響按鈕 */
+.banner-text a {
+    display: inline-block;
+}
+
+/* --- 戰鬥風格按鈕 (CTA) --- */
+.banner-text button {
+    padding: 18px 50px;
+    font-size: 20px;
+    font-weight: bold;
+    color: #0c2461;
+    /* 金屬質感漸層黃 */
+    background: linear-gradient(to bottom, #f1c40f, #f39c12);
+    border: 1px solid #e67e22;
+    border-radius: 5px; /* 微微圓角，比較剛硬 */
+    cursor: pointer;
+    box-shadow: 0 5px 15px rgba(243, 156, 18, 0.4);
+    transition: 0.2s;
+    text-transform: uppercase;
+}
+
+.banner-text button:hover {
+    background: linear-gradient(to bottom, #f39c12, #f1c40f); /* 反轉漸層 */
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(243, 156, 18, 0.6);
+}
+
+/* --- 最新消息 --- */
+.news {
+    padding: 80px 10%;
+    max-width: 1200px;
+    margin: auto;
+}
+
+.news h2 {
+    font-size: 32px;
+    color: #0c2461; /* 深藍色標題 */
+    margin-bottom: 50px;
+    padding-left: 15px;
+    border-left: 5px solid #f1c40f; /* 左側黃色裝飾線 */
+}
+
+.news-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* RWD 網格排列 */
+    gap: 30px; 
+}
+
+/* --- 極簡卡片風格 --- */
+.news-item {
+    background: #fff;
+    border-radius: 8px; /* 圓角 */
+    padding: 30px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05); /* 輕微陰影 */
+    transition: 0.3s;
+    position: relative;
+    overflow: hidden;
+    border-top: 4px solid transparent; /* 預留頂部線條空間 */
+}
+
+/* 滑鼠移上去的效果：浮起 + 頂部出現藍色線條 */
+.news-item:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+    border-top-color: #0c2461; /* 頂部變成深藍色 */
+}
+
+.news-item h3 {
+    margin-top: 0;
+    font-size: 20px;
+    color: #0c2461;
+}
+
+.news-item h3 a:hover {
+    color: #3498db; /* 連結變亮藍色 */
+}
+
+.news-item p {
+    color: #636e72;
+    line-height: 1.6;
+    margin-bottom: 0;
+}
+
+/* --- 頁尾 --- */
+footer {
+    background: #0c2461;
+    color: #b2bec3;
+    text-align: center;
+    padding: 40px;
+    margin-top: 80px;
+    font-size: 14px;
+    border-top: 5px solid #f1c40f; /* 頂部黃色線條呼應 */
+}
