@@ -1,0 +1,160 @@
+/* --- 全域基本設定 --- */
+body {
+    margin: 0;
+    font-family: "Noto Serif TC", "Microsoft JhengHei", serif; /* 保留您的襯線字體風格 */
+    background: #f3efe3; /* 米色背景 */
+    color: #3a2e1f;      /* 深棕色文字 */
+}
+
+/* 讓所有的連結預設不要有底線，顏色跟隨文字，避免變成藍色 */
+a {
+    text-decoration: none;
+    color: inherit;
+    transition: 0.3s; /* 增加一點點滑順效果 */
+}
+
+/* --- 上方導覽列 --- */
+.top-bar {
+    background: #6b3f1d; /* 深咖啡色 */
+    color: #fff;
+    display: flex;
+    align-items: center;
+    padding: 10px 40px;
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+    margin-right: 40px;
+    letter-spacing: 1px;
+}
+
+nav a {
+    color: #fff;
+    margin-right: 20px;
+    font-size: 16px;
+    opacity: 0.9;
+}
+
+nav a:hover {
+    text-decoration: underline;
+    opacity: 1;
+}
+
+/* --- Banner 大圖區 --- */
+.banner {
+    height: 420px;
+    /* 這裡記得確認圖片路徑是否正確 */
+    background: linear-gradient(
+        rgba(0,0,0,0.3),
+        rgba(0,0,0,0.3)
+    ),
+    url("../images/banner.jpg") center / cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.banner-text {
+    text-align: center;
+    color: #fff;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.5); /* 增加文字陰影讓字更清楚 */
+}
+
+.banner-text h1 {
+    font-size: 48px;
+    margin-bottom: 10px;
+}
+
+/* 確保包住按鈕的連結不會影響版面 */
+.banner-text a {
+    display: inline-block;
+}
+
+.banner-text button {
+    padding: 12px 30px;
+    font-size: 18px; /* 字體稍微加大 */
+    font-weight: bold;
+    background: #cfa75a; /* 金色按鈕 */
+    color: #3a2e1f;
+    border: 2px solid #b38f45;
+    cursor: pointer;
+    transition: 0.3s;
+    margin-top: 15px;
+}
+
+.banner-text button:hover {
+    background: #e0bf75;
+    transform: translateY(-2px); /* 滑鼠移上去稍微浮起 */
+}
+
+/* --- 最新消息 --- */
+.news {
+    padding: 50px 20px;
+    max-width: 1100px;
+    margin: auto;
+}
+
+.news h2 {
+    text-align: center;
+    margin-bottom: 40px;
+    font-size: 28px;
+    border-bottom: 2px solid #d6c8a5; /* 標題下方加一條線 */
+    display: inline-block;
+    padding-bottom: 10px;
+    /* 為了讓線條置中 */
+    position: relative; 
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.news-list {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap; /* 【重點】加上這個，版面太窄時會自動換行，不會擠在一起 */
+}
+
+.news-item {
+    background: #fff;
+    border: 2px solid #d6c8a5;
+    padding: 25px;
+    flex: 1;
+    min-width: 280px; /* 【重點】設定最小寬度，避免手機版變太細 */
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05); /* 增加一點立體感 */
+    transition: 0.3s;
+}
+
+.news-item:hover {
+    border-color: #cfa75a; /* 滑鼠移過去邊框變金色 */
+}
+
+.news-item h3 {
+    margin-top: 0;
+    margin-bottom: 10px;
+}
+
+/* 新聞標題裡的連結樣式 */
+.news-item h3 a {
+    color: #3a2e1f;
+    font-weight: bold;
+}
+
+.news-item h3 a:hover {
+    color: #cfa75a; /* 滑鼠移過去變金色 */
+}
+
+.news-item p {
+    font-size: 14px;
+    color: #666;
+    line-height: 1.5;
+}
+
+/* --- 頁尾 --- */
+footer {
+    background: #3a2e1f;
+    color: #ccc;
+    text-align: center;
+    padding: 20px;
+    margin-top: 50px;
+    font-size: 14px;
+}
